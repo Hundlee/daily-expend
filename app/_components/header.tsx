@@ -1,15 +1,17 @@
-import { LogOut, MoonIcon } from "lucide-react";
+import { Ghost, LogInIcon, LogOut, MoonIcon } from "lucide-react";
 import { Button } from "./ui/button";
 
 const Header = () => {
     return (
-        <div className="flex items-center justify-between p-5">
-            <Button size="icon" variant="ghost">
+        <header className="flex items-center justify-between p-5">
+            <Button variant="ghost" className="p-0">
                 <MoonIcon />
             </Button>
-            <h1 className="text-3xl font-bold">Gastos</h1>
-            <Button>Login</Button>
-        </div>
+            <h1 className="text-2xl font-bold">Gastos</h1>
+            <Button className="p-0" variant="ghost">
+                <LogInIcon />
+            </Button>
+        </header>
     );
 };
 
