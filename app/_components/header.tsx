@@ -1,12 +1,13 @@
-import { Ghost, LogInIcon, LogOut, MoonIcon } from "lucide-react";
+"use client";
+
+import { LogInIcon } from "lucide-react";
 import { Button } from "./ui/button";
+import ThemeToggle from "./themeToggle";
 
 const Header = () => {
     return (
         <header className="flex items-center justify-between p-5">
-            <Button variant="ghost" className="p-0">
-                <MoonIcon />
-            </Button>
+            <ThemeToggle />
             <h1 className="text-2xl font-bold">Gastos</h1>
             <Button className="p-0" variant="ghost">
                 <LogInIcon />
