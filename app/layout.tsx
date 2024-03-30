@@ -19,10 +19,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${inter.className} `}>
-                <div className="flex-1">
-                    <Header />
-                    {children}
-                </div>
+                <div className="flex-1">{children}</div>
                 <Navigation />
             </body>
         </html>
