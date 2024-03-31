@@ -1,8 +1,10 @@
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import { ArrowDown, RefreshCcwIcon, TagIcon } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { DialogClose } from "../ui/dialog";
 import { Button } from "../ui/button";
+import ConfirmSpent from "./confirmSpent";
+import SelectTag from "./selectTag";
 
 const CreateSpent = () => {
     return (
@@ -27,18 +29,14 @@ const CreateSpent = () => {
                         />
                     </div>
                 </div>
-                <div className="flex gap-3 items-center justify-center">
-                    <TagIcon className="text-gray-500" />
-                    <p>Selecione uma etiqueta</p>
-                    <RefreshCcwIcon className="text-gray-500" />
-                </div>
+                <SelectTag />
                 <div className="flex gap-5">
                     <DialogClose asChild>
                         <Button variant="destructive" className="p-6 text-lg">
                             Cancelar
                         </Button>
                     </DialogClose>
-                    <Button className="p-6 text-lg">Proximo</Button>
+                    <ConfirmSpent />
                 </div>
             </div>
         </>
