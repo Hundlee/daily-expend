@@ -10,7 +10,7 @@ import { Button } from "../_components/ui/button";
 import { useState } from "react";
 
 const CreateSpent = () => {
-    const [value, setValue] = useState<number | null>(0);
+    const [value, setValue] = useState<number>(0);
     const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
     const handleSelectTag = (tag: string) => {
@@ -47,6 +47,7 @@ const CreateSpent = () => {
                             Cancelar
                         </Button>
                     </DialogClose>
+
                     <ConfirmSpent value={value} tag={selectedTag} />
                 </div>
             </div>
