@@ -1,5 +1,3 @@
-import { UmbrellaIcon } from "lucide-react";
-
 const Spent = () => {
     return (
         <main className="flex flex-col mt-20">
@@ -15,43 +13,34 @@ const Spent = () => {
                     <h2 className="text-destructive text-lg">R$ -500.00</h2>
                 </div>
                 <div className="flex items-center justify-between py-3">
-                    <div className="flex items-center">
-                        <UmbrellaIcon />
-                        <div className="flex flex-col pl-2">
-                            <h3>Viagem</h3>
-                            <span>02:32 PM</span>
-                        </div>
+                    <div className="flex flex-col">
+                        <h3>Viagem</h3>
+                        <span>02:32 PM</span>
+                    </div>
+
+                    <p className="text-destructive">R$ -30</p>
+                </div>
+                <div className="flex items-center justify-between py-3">
+                    <div className="flex flex-col">
+                        <h3>Viagem</h3>
+                        <span>02:32 PM</span>
+                    </div>
+
+                    <p className="text-destructive">R$ -30</p>
+                </div>
+                <div className="flex items-center justify-between py-3">
+                    <div className="flex flex-col">
+                        <h3>Viagem</h3>
+                        <span>02:32 PM</span>
                     </div>
                     <p className="text-destructive">R$ -30</p>
                 </div>
                 <div className="flex items-center justify-between py-3">
-                    <div className="flex items-center">
-                        <UmbrellaIcon />
-                        <div className="flex flex-col pl-2">
-                            <h3>Viagem</h3>
-                            <span>02:32 PM</span>
-                        </div>
+                    <div className="flex flex-col">
+                        <h3>Viagem</h3>
+                        <span>02:32 PM</span>
                     </div>
-                    <p className="text-destructive">R$ -30</p>
-                </div>
-                <div className="flex items-center justify-between py-3">
-                    <div className="flex items-center">
-                        <UmbrellaIcon />
-                        <div className="flex flex-col pl-2">
-                            <h3>Viagem</h3>
-                            <span>02:32 PM</span>
-                        </div>
-                    </div>
-                    <p className="text-destructive">R$ -30</p>
-                </div>
-                <div className="flex items-center justify-between py-3">
-                    <div className="flex items-center">
-                        <UmbrellaIcon />
-                        <div className="flex flex-col pl-2">
-                            <h3>Viagem</h3>
-                            <span>02:32 PM</span>
-                        </div>
-                    </div>
+
                     <p className="text-destructive">R$ -30</p>
                 </div>
             </section>
