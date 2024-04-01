@@ -1,12 +1,22 @@
+"use client";
+
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { ArrowDown } from "lucide-react";
-import { DialogClose } from "../ui/dialog";
-import { Button } from "../ui/button";
 import ConfirmSpent from "./confirmSpent";
 import SelectTag from "./selectTag";
+import { DialogClose } from "../_components/ui/dialog";
+import { Button } from "../_components/ui/button";
+import { useState } from "react";
 
 const CreateSpent = () => {
+    const [value, setValue] = useState<number | null>(0);
+    const [selectedTag, setSelectedTag] = useState<string | null>(null);
+
+    const handleSelectTag = (tag: string) => {
+        setSelectedTag(tag);
+    };
+
     return (
         <>
             <div className="flex flex-col items-center gap-8">
@@ -20,6 +30,7 @@ const CreateSpent = () => {
                         type="number"
                         className="bg-transparent text-center text-5xl font-bold text-gray-800 dark:text-gray-500 p-0 w-full "
                         placeholder="R$ 0"
+                        onChange={(e) => setValue(Number(e.target.value))}
                     />
                     <div className="mt-3">
                         <ArrowDown
@@ -29,14 +40,14 @@ const CreateSpent = () => {
                         />
                     </div>
                 </div>
-                <SelectTag />
+                <SelectTag onSelectTag={handleSelectTag} />
                 <div className="flex gap-5">
                     <DialogClose asChild>
                         <Button variant="destructive" className="p-6 text-lg">
                             Cancelar
                         </Button>
                     </DialogClose>
-                    <ConfirmSpent />
+                    <ConfirmSpent value={value} tag={selectedTag} />
                 </div>
             </div>
         </>

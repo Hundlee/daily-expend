@@ -1,8 +1,6 @@
-"use client";
-
 import { Plus } from "lucide-react";
 import { Button } from "./ui/button";
-import CreateSpent from "./_controllers/createSpent";
+import CreateSpent from "../_controllers/createSpent";
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
 const ButtomCreateSpent = () => {
