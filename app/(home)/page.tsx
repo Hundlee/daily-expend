@@ -55,7 +55,7 @@ export default async function Home() {
                         Total de gastos deste mês
                     </p>
                     <h1 className="text-5xl font-semibold text-destructive mt-3">
-                        - R$ {totalMonthlySpending}
+                        - R$ {totalMonthlySpending.toFixed(2)}
                     </h1>
                 </div>
             </div>
@@ -63,7 +63,7 @@ export default async function Home() {
             <div className="p-5 w-full flex items-center justify-between mt-5">
                 <h2 className="text-lg font-semibold">Hoje</h2>
                 <h2 className="text-lg font-semibold text-destructive">
-                    - R$ {totalTodaySpending}
+                    - R$ {totalTodaySpending.toFixed(2)}
                 </h2>
             </div>
 
