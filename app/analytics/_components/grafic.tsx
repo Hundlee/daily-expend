@@ -91,7 +91,7 @@ const Grafic = ({ spents }: GraficProps) => {
                     fontSize: "15px",
                 },
                 fillSeriesColor: false,
-                formatter: function (value) {
+                formatter: function (value: any) {
                     return "R$" + value;
                 },
             },
