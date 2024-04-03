@@ -1,100 +1,55 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ApexCharts from "apexcharts";
+import { Spent } from "@prisma/client";
 
-interface SeriesData {
-    name: string;
-    color?: string;
-    data: string[];
+interface GraficProps {
+    spents: Spent[];
 }
 
-interface Options {
-    series: SeriesData[];
-    chart: {
-        sparkline: {
-            enabled: boolean;
-        };
-        type: string;
-        width: string;
-        height: number;
-        toolbar: {
-            show: boolean;
-        };
-    };
-    fill: {
-        opacity: number;
-    };
-    plotOptions: {
-        bar: {
-            horizontal: boolean;
-            columnWidth: string;
-            borderRadiusApplication?: string;
-            borderRadius: number;
-            dataLabels: {
-                position: string;
-            };
-        };
-    };
-    legend: {
-        show: boolean;
-        position: string;
-    };
-    dataLabels: {
-        enabled: boolean;
-    };
-    tooltip: {
-        shared: boolean;
-        intersect: boolean;
-        formatter: (value: string) => string;
-    };
-    xaxis: {
-        labels: {
-            show: boolean;
-            style: {
-                fontFamily: string;
-                cssClass: string;
-            };
-            formatter: (value: string) => string;
-        };
-        categories: string[];
-        axisTicks: {
-            show: boolean;
-        };
-        axisBorder: {
-            show: boolean;
-        };
-    };
-    yaxis: {
-        labels: {
-            show: boolean;
-            style: {
-                fontFamily: string;
-                cssClass: string;
-            };
-        };
-    };
-    grid: {
-        show: boolean;
-        strokeDashArray: number;
-        padding: {
-            left: number;
-            right: number;
-            top: number;
-        };
-    };
-}
+const Grafic = ({ spents }: GraficProps) => {
+    const [options, setOptions] = useState<any>(null);
+    const [yearExpense, setYearExpense] = useState(0);
+    const [monthExpense, setMonthExpense] = useState(0);
 
-const Grafic = () => {
-    function chartTeste() {
-        const options: Options = {
-            series: [
-                {
-                    name: "Expense",
-                    data: ["788", "810", "866", "788", "1100", "1200"],
-                    color: "#F05252",
+    useEffect(() => {
+        const categories: string[] = [];
+        const data: number[] = Array(12).fill(0);
+
+        spents.forEach((spent) => {
+            const month = spent.date.getMonth();
+            const expense = parseFloat(spent.price.toString());
+
+            data[month] += expense;
+        });
+
+        setMonthExpense(data.map((value) => value).reduce((a, b) => a + b));
+
+        setOptions({
+            xaxis: {
+                categories: [
+                    "Jan",
+                    "Fev",
+                    "Mar",
+                    "Abr",
+                    "Mai",
+                    "Jun",
+                    "Jul",
+                    "Ago",
+                    "Set",
+                    "Out",
+                    "Nov",
+                    "Dez",
+                ],
+
+                axisTicks: {
+                    show: false,
                 },
-            ],
+                axisBorder: {
+                    show: false,
+                },
+            },
             chart: {
                 sparkline: {
                     enabled: false,
@@ -130,43 +85,24 @@ const Grafic = () => {
             tooltip: {
                 shared: true,
                 intersect: false,
+                triggerType: "click",
+                theme: "dark",
+                style: {
+                    fontSize: "15px",
+                },
+                fillSeriesColor: false,
                 formatter: function (value) {
                     return "R$" + value;
                 },
             },
-            xaxis: {
-                labels: {
-                    show: true,
-                    style: {
-                        fontFamily: "Inter, sans-serif",
-                        cssClass:
-                            "text-xs font-normal fill-gray-500 dark:fill-gray-400",
-                    },
-                    formatter: function (value) {
-                        return "R$" + value;
-                    },
+            series: [
+                {
+                    name: "Perdas",
+                    data: data.map((value) => value),
+                    color: "#F05252",
                 },
-                categories: [
-                    "Jan",
-                    "Fev",
-                    "Mar",
-                    "Abr",
-                    "Mai",
-                    "Jun",
-                    "Jul",
-                    "Ago",
-                    "Set",
-                    "Out",
-                    "Nov",
-                    "Dez",
-                ],
-                axisTicks: {
-                    show: false,
-                },
-                axisBorder: {
-                    show: false,
-                },
-            },
+            ],
+
             yaxis: {
                 labels: {
                     show: true,
@@ -186,9 +122,23 @@ const Grafic = () => {
                     top: -20,
                 },
             },
-        };
+        });
+    }, [spents]);
 
+    useEffect(() => {
+        const currentYear = new Date().getFullYear();
+        const yearExpense = spents
+            .filter((spent) => spent.date.getFullYear() === currentYear)
+            .reduce(
+                (acc, spent) => acc + parseFloat(spent.price.toString()),
+                0
+            );
+        setYearExpense(yearExpense);
+    }, [spents]);
+
+    useEffect(() => {
         if (
+            options &&
             document.getElementById("bar-chart") &&
             typeof ApexCharts !== "undefined"
         ) {
@@ -199,32 +149,29 @@ const Grafic = () => {
             chart.render();
             chart.resetSeries();
         }
-    }
+    }, [options]);
 
-    useEffect(() => {
-        chartTeste();
-    }, []);
     return (
         <div className="p-5">
             <div className="w-full bg-white rounded-lg shadow dark:bg-gray-800 p-5 ">
                 <div className="flex justify-between border-gray-200 border-b dark:border-gray-700 pb-3">
                     <dl>
                         <dt className="text-base font-normal text-gray-500 dark:text-gray-400 pb-1">
-                            Perdas
+                            despesas
                         </dt>
                         <dd className="leading-none text-3xl font-bold text-gray-900 dark:text-white">
-                            R$5,405 este mês
+                            R$
+                            {monthExpense.toFixed(2)} este mês
                         </dd>
                     </dl>
                 </div>
-
                 <div className="grid grid-cols-2 py-3">
                     <dl>
                         <dt className="text-base font-normal text-gray-500 dark:text-gray-400 pb-1">
                             Despesas
                         </dt>
                         <dd className="leading-none text-xl font-bold text-red-600 dark:text-red-500">
-                            R$ -18,230 ano
+                            - R$ {yearExpense.toFixed(2)} este ano
                         </dd>
                     </dl>
                 </div>
