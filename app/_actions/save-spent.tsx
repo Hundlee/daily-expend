@@ -29,5 +29,4 @@ export const saveSpent = async (params: SaveSpentParams) => {
     });
 
     revalidatePath("/");
-    revalidatePath("/project/[id]");
 };
