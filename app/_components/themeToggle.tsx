@@ -1,38 +1,36 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+import { toast } from "./ui/use-toast";
 import { Button } from "./ui/button";
 import { MoonIcon, SunIcon } from "lucide-react";
+import { useState } from "react";
 
-const ThemeToggle = () => {
-    const [darkMode, setDarkMode] = useState(true);
+export function ThemeToggle() {
+    const { theme, setTheme } = useTheme();
+    const [currentTheme, setCurrentTheme] = useState(theme);
 
-    useEffect(() => {
-        const theme = localStorage.getItem("theme");
-        if (theme === "dark") {
-            setDarkMode(true);
-        }
-    }, []);
-
-    useEffect(() => {
-        if (darkMode) {
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-        }
-    }, [darkMode]);
+    const handleToggleTheme = () => {
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        setTheme(newTheme);
+        setCurrentTheme(newTheme);
+        toast({
+            title: "Theme Updated",
+            description: `Your theme has been changed.`,
+        });
+    };
 
     return (
-        <Button
-            onClick={() => setDarkMode(!darkMode)}
-            className="p-0"
-            variant="ghost"
-        >
-            {darkMode ? <SunIcon /> : <MoonIcon />}
-        </Button>
+        <form onSubmit={handleToggleTheme} name="theme">
+            {theme === "light" ? (
+                <Button value="dark" type="submit" variant="link">
+                    <MoonIcon />
+                </Button>
+            ) : (
+                <Button value="light" type="submit" variant="link">
+                    <SunIcon />
+                </Button>
+            )}
+        </form>
     );
-};
-
-export default ThemeToggle;
+}
