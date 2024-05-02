@@ -14,6 +14,7 @@
     },
     "dependencies": {
         "@auth/prisma-adapter": "^1.5.2",
+        "@hookform/resolvers": "^3.3.4",
         "@prisma/client": "^5.11.0",
         "@radix-ui/react-dialog": "^1.0.5",
         "@radix-ui/react-slot": "^1.0.2",
@@ -25,12 +26,16 @@
         "lucide-react": "^0.363.0",
         "next": "14.1.4",
         "next-auth": "^4.24.7",
+        "next-themes": "^0.3.0",
         "react": "^18",
         "react-apexcharts": "^1.4.1",
         "react-dom": "^18",
+        "react-hook-form": "^7.51.3",
         "tailwind-merge": "^2.2.2",
         "tailwindcss-animate": "^1.0.7",
-        "vaul": "^0.9.0"
+        "vaul": "^0.9.0",
+        "yup": "^1.4.0",
+        "zod": "^3.23.5"
     },
     "devDependencies": {
         "@types/node": "^20",
