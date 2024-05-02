@@ -8,12 +8,11 @@ import { useState } from "react";
 
 export function ThemeToggle() {
     const { theme, setTheme } = useTheme();
-    const [currentTheme, setCurrentTheme] = useState(theme);
 
-    const handleToggleTheme = () => {
-        const newTheme = currentTheme === "light" ? "dark" : "light";
+    const handleToggleTheme = (event: any) => {
+        event.preventDefault();
+        const newTheme = theme === "light" ? "dark" : "light";
         setTheme(newTheme);
-        setCurrentTheme(newTheme);
         toast({
             title: "Theme Updated",
             description: `Your theme has been changed.`,
@@ -23,11 +22,21 @@ export function ThemeToggle() {
     return (
         <form onSubmit={handleToggleTheme} name="theme">
             {theme === "light" ? (
-                <Button value="dark" type="submit" variant="link">
+                <Button
+                    value="dark"
+                    type="submit"
+                    variant="link"
+                    className="text-black"
+                >
                     <MoonIcon />
                 </Button>
             ) : (
-                <Button value="light" type="submit" variant="link">
+                <Button
+                    value="light"
+                    type="submit"
+                    variant="link"
+                    className="text-white"
+                >
                     <SunIcon />
                 </Button>
             )}
