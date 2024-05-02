@@ -18,9 +18,11 @@ import { toast } from "../_components/ui/use-toast";
 const ConfirmSpent = ({
     value,
     tag,
+    onClose,
 }: {
     value: number;
     tag: string | null;
+    onClose: () => void;
 }) => {
     const { data } = useSession();
 
@@ -45,6 +47,7 @@ const ConfirmSpent = ({
             });
 
             setSheetIsOpen(false);
+            onClose();
             toast({
                 description: "Gasto adicionado com sucesso!",
             });
