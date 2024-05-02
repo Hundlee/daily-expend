@@ -1,4 +1,4 @@
-import { BarChart4Icon, HomeIcon, MegaphoneIcon, Plus } from "lucide-react";
+import { BarChart4Icon, HomeIcon } from "lucide-react";
 import Link from "next/link";
 import ButtomCreateSpent from "./bottomCreateSpent";
 
