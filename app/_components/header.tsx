@@ -1,5 +1,5 @@
-import ThemeToggle from "./themeToggle";
 import LoginButton from "./loginBottom";
+import { ThemeToggle } from "./themeToggle";
 
 interface HeaderProps {
     name: string;
