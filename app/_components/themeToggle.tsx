@@ -14,8 +14,8 @@ export function ThemeToggle() {
         const newTheme = theme === "light" ? "dark" : "light";
         setTheme(newTheme);
         toast({
-            title: "Theme Updated",
-            description: `Your theme has been changed.`,
+            title: "Tema Atualizado",
+            description: `Seu tema foi alterado.`,
         });
     };
 
