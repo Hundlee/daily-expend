@@ -26,12 +26,21 @@ export default async function Home() {
         : [];
 
     const totalTodaySpending = spent.reduce((total, item) => {
-        return total + parseFloat(item.price.toFixed(2));
+        const itemDate = new Date(item.date);
+        if (itemDate.toDateString() === currentDate.toDateString()) {
+            return total + parseFloat(item.price.toFixed(2));
+        }
+        return total;
     }, 0);
 
     const totalMonthlySpending = spent.reduce((total, item) => {
         return total + parseFloat(item.price.toFixed(2));
     }, 0);
+
+    const spentFilter = spent.filter((spent) => {
+        return spent.date.toDateString() === currentDate.toDateString();
+    });
+
     return (
         <div>
             <Header name={"Gastos"} />
@@ -68,7 +77,7 @@ export default async function Home() {
             </div>
 
             <div className="flex flex-col gap-3 p-5">
-                {spent.map((spent) => (
+                {spentFilter.map((spent) => (
                     <SpentItem key={spent.id} spent={spent} />
                 ))}
             </div>
