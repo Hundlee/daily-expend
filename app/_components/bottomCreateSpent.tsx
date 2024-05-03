@@ -6,8 +6,8 @@ import { Dialog, DialogClose, DialogContent, DialogTrigger } from "./ui/dialog";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { useState } from "react";
-import SelectTag from "../_controllers/selectTag";
-import ConfirmSpent from "../_controllers/confirmSpent";
+import SelectTag from "../_actions/selectTag";
+import ConfirmSpent from "../_actions/confirmSpent";
 
 const ButtomCreateSpent = () => {
     const [value, setValue] = useState<number>(0);
