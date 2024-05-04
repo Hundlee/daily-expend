@@ -12,7 +12,7 @@ const SpentItem = ({ spent }: SpentItemProps) => {
     return (
         <Card className="min-w-full last:mb-24">
             <CardContent className="py-0 flex px-0 items-center justify-between">
-                <div className="flex flex-col gap-2 py-5 pl-3">
+                <div className="flex flex-col gap-2 py-5 pl-3 w-32">
                     <h2 className="font-bold">{spent.name}</h2>
                     <p className="text-sm">
                         {format(spent.date, "'Hoje' H:mm aa")}
