@@ -12,7 +12,7 @@ import {
 } from "../_components/ui/sheet";
 import { useState } from "react";
 import { saveSpent } from "./save-spent";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { toast } from "../_components/ui/use-toast";
 
 const ConfirmSpent = ({
@@ -35,6 +35,7 @@ const ConfirmSpent = ({
 
         try {
             if (!data?.user) {
+                await signIn("google")
                 return;
             }
 
