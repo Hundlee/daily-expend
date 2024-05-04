@@ -152,7 +152,7 @@ const Grafic = ({ spents }: GraficProps) => {
     }, [options]);
 
     return (
-        <div className="p-5 pb-28">
+        <div className="p-5 ">
             <div className="w-full bg-white rounded-lg shadow dark:bg-gray-800 p-5">
                 <div className="flex justify-between border-gray-200 border-b dark:border-gray-700 pb-3">
                     <dl>
