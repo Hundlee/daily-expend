@@ -19,7 +19,7 @@ const SpentItem = ({ spent }: SpentItemProps) => {
                     </p>
                 </div>
                 <SpentDelete spentId={spent} />
-                <div className="flex flex-col items-center justify-center pr-3">
+                <div className="flex flex-col items-center justify-center pr-3 w-32">
                     <p className="text-destructive font-semibold">
                         - R$ {parseFloat(spent.price.valueOf()).toFixed(2)}
                     </p>
