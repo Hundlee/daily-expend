@@ -41,6 +41,10 @@ export default async function Home() {
         return spent.date.toDateString() === currentDate.toDateString();
     });
 
+    spentFilter.sort((a, b) => {
+        return Number(b.date) - Number(a.date);
+    });
+
     return (
         <div>
             <Header name={"Gastos"} />
