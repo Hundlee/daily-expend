@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/app/_components/ui/card";
 import { Spent } from "@prisma/client";
 import { format } from "date-fns";
 import { SpentDelete } from "./spentDeleteComponent";
+import UpdateSpentComponent from "@/app/(home)/_components/updateSpentComponent";
 
 interface SpentItemProps {
     spent: Spent;
@@ -18,7 +19,10 @@ const SpentItem = ({ spent }: SpentItemProps) => {
                         {format(spent.date, "'Hoje' H:mm aa")}
                     </p>
                 </div>
-                <SpentDelete spentId={spent} />
+                <div className="flex flex-col">
+                    <UpdateSpentComponent spent={spent} />
+                    <SpentDelete spentId={spent} />
+                </div>
                 <div className="flex flex-col items-center justify-center pr-3 w-32">
                     <p className="text-destructive font-semibold">
                         - R$ {parseFloat(spent.price.valueOf()).toFixed(2)}
