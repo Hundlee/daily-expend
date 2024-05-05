@@ -26,7 +26,7 @@ export function ThemeToggle() {
                     value="dark"
                     type="submit"
                     variant="link"
-                    className="text-black"
+                    className="text-black p-0"
                 >
                     <MoonIcon />
                 </Button>
@@ -35,7 +35,7 @@ export function ThemeToggle() {
                     value="light"
                     type="submit"
                     variant="link"
-                    className="text-white"
+                    className="text-white p-0"
                 >
                     <SunIcon />
                 </Button>
