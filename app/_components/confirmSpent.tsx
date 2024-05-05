@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRight, Loader2 } from "lucide-react";
-import { Button } from "../_components/ui/button";
+import { Button } from "./ui/button";
 import {
     Sheet,
     SheetClose,
@@ -9,11 +9,11 @@ import {
     SheetDescription,
     SheetTitle,
     SheetTrigger,
-} from "../_components/ui/sheet";
+} from "./ui/sheet";
 import { useState } from "react";
-import { saveSpent } from "./save-spent";
+import { saveSpent } from "../_actions/save-spent";
 import { signIn, useSession } from "next-auth/react";
-import { toast } from "../_components/ui/use-toast";
+import { toast } from "./ui/use-toast";
 
 const ConfirmSpent = ({
     value,
@@ -35,7 +35,7 @@ const ConfirmSpent = ({
 
         try {
             if (!data?.user) {
-                await signIn("google")
+                await signIn("google");
                 return;
             }
 
