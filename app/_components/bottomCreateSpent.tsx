@@ -7,7 +7,7 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { useState } from "react";
 import SelectTag from "../_actions/selectTag";
-import ConfirmSpent from "../_actions/confirmSpent";
+import ConfirmSpent from "./confirmSpent";
 
 const ButtomCreateSpent = () => {
     const [value, setValue] = useState<number>(0);
