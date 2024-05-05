@@ -62,7 +62,10 @@ export function SpentDelete({ spentId }: SpentDeleteProps) {
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                     <AlertDialogCancel>Cancelar</AlertDialogCancel>
-                    <AlertDialogAction onClick={handleDeleteSpent}>
+                    <AlertDialogAction
+                        onClick={handleDeleteSpent}
+                        className="bg-destructive hover:bg-red-700"
+                    >
                         {submitIsLoading && (
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                         )}
