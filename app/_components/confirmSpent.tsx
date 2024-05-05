@@ -26,7 +26,7 @@ const ConfirmSpent = ({
 }) => {
     const { data } = useSession();
 
-    const [date, setDate] = useState<Date>(new Date());
+    const date = new Date();
     const [submitIsLoading, setSubmitIsLoading] = useState(false);
     const [sheetIsOpen, setSheetIsOpen] = useState(false);
 
