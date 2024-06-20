@@ -2,8 +2,7 @@
 
 import {
     ArrowDown,
-    Loader2,
-    Plus,
+  
     RefreshCcwIcon,
     RotateCcw,
     TagIcon,
@@ -16,8 +15,7 @@ import {
     DialogTrigger,
 } from "../../_components/ui/dialog";
 import { useEffect, useState } from "react";
-import SelectTag from "../../_actions/selectTag";
-import ConfirmSpent from "../../_components/confirmSpent";
+
 import { Spent } from "@prisma/client";
 import { updateSpent } from "../../_actions/updateSpent";
 import { useSession } from "next-auth/react";
