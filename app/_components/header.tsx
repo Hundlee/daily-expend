@@ -7,7 +7,7 @@ interface HeaderProps {
 
 const Header = ({ name }: HeaderProps) => {
     return (
-        <header className="flex items-center justify-between p-5">
+        <header className="flex items-center justify-between p-5 lg:px-16">
             <ThemeToggle />
             <h1 className="text-2xl font-bold">{name}</h1>
             <LoginButton />
