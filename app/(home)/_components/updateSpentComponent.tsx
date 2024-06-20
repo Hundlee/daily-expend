@@ -1,12 +1,6 @@
 "use client";
 
-import {
-    ArrowDown,
-  
-    RefreshCcwIcon,
-    RotateCcw,
-    TagIcon,
-} from "lucide-react";
+import { ArrowDown, RefreshCcwIcon, RotateCcw, TagIcon } from "lucide-react";
 import { Button } from "../../_components/ui/button";
 import {
     Dialog,
@@ -88,18 +82,12 @@ const UpdateSpentComponent = ({ spent }: UpdateSpentComponentProps) => {
         }
     };
 
-    console.log(spent.name);
-
     return (
         <>
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
                 <DialogTrigger asChild>
                     <Button className="p-2 rounded-full" variant="link">
-                        <RotateCcw
-                            className="text-white"
-                            width={20}
-                            height={20}
-                        />
+                        <RotateCcw className="text-white w-5 h-5 lg:w-6 lg:h-6" />
                     </Button>
                 </DialogTrigger>
                 <DialogContent>
