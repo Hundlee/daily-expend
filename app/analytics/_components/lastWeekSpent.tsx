@@ -35,7 +35,6 @@ export default async function LastWeekSpent() {
 
     const topThreeSpentLastWeek = spentLastWeekFilter.slice(0, 3);
 
-
     return (
         <section className="p-5">
             <h1 className="text-white">Maiores gastos da ultima semana</h1>
