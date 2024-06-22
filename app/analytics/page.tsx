@@ -2,7 +2,7 @@ import { getServerSession } from "next-auth";
 import Header from "../_components/header";
 import Grafic from "./_components/grafic";
 import { authOptions } from "../_lib/auth";
-import { endOfMonth, format, startOfMonth } from "date-fns";
+import { endOfMonth, startOfMonth } from "date-fns";
 import { db } from "../_lib/prisma";
 import LastWeekSpent from "./_components/lastWeekSpent";
 import LastMonthSpent from "./_components/lastMonthSpent";
