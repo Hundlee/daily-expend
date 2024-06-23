@@ -36,7 +36,7 @@ export default async function LastMonthSpent() {
     const topThreeSpentLastMonth = spentLastMonthFilter.slice(0, 3);
 
     return (
-        <section className="pb-28 p-5">
+        <section className="pb-28 p-5 lg:px-16">
             <h1 className="text-white">Maiores gastos do ultimo mês</h1>
 
             <div className="flex flex-col gap-3 pt-5">
