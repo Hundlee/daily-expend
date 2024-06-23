@@ -4,9 +4,9 @@ import { authOptions } from "../_lib/auth";
 import SpentItem from "./_components/spentItem";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import { fetchSpentData } from "../_helpers/fetchSpentData";
-import { calculateTotals } from "../_helpers/calculateTotals";
-import { filterSpent } from "../_helpers/filterSpent";
+import { fetchSpentData } from "../_utils/fetchSpentData";
+import { calculateTotals } from "../_utils/calculateTotals";
+import { filterSpent } from "../_utils/filterSpent";
 import { Spent } from "@prisma/client";
 
 export default async function Home() {
@@ -52,29 +52,33 @@ export default async function Home() {
                     </h1>
                 </div>
             </div>
-            <div className="flex justify-between lg:px-16">
-                <div className="hidden lg:block w-full">
-                    <div className="p-5 w-full flex items-center justify-between mt-5">
-                        <h2 className="text-lg font-semibold">Ultima Semana</h2>
-                        <h2 className="text-lg font-semibold text-destructive">
-                            - R$ {totalWeek.toFixed(2)}
-                        </h2>
+            <div className="flex justify-between lg:px-16 gap-5">
+                {totalWeek >= 1 && (
+                    <div className="hidden lg:block w-full lg:p-0">
+                        <div className="w-full flex items-center justify-between my-5">
+                            <h2 className="text-lg font-semibold">
+                                Ultima Semana
+                            </h2>
+                            <h2 className="text-lg font-semibold text-destructive">
+                                - R$ {totalWeek.toFixed(2)}
+                            </h2>
+                        </div>
+                        <div className="flex flex-col gap-3 p-5 lg:p-0 ">
+                            {spentLastWeek.map((spent: Spent) => (
+                                <SpentItem key={spent.id} spent={spent} />
+                            ))}
+                        </div>
                     </div>
-                    <div className="flex flex-col gap-3 p-5 ">
-                        {spentLastWeek.map((spent: Spent) => (
-                            <SpentItem key={spent.id} spent={spent} />
-                        ))}
-                    </div>
-                </div>
+                )}
                 {totalToday >= 1 && (
                     <div className="w-full">
-                        <div className="p-5 w-full flex items-center justify-between mt-5">
+                        <div className="p-5 w-full flex items-center justify-between my-5 lg:p-0">
                             <h2 className="text-lg font-semibold">Hoje</h2>
                             <h2 className="text-lg font-semibold text-destructive">
                                 - R$ {totalToday.toFixed(2)}
                             </h2>
                         </div>
-                        <div className="flex flex-col gap-3 p-5 ">
+                        <div className="flex flex-col gap-3 p-5 lg:p-0">
                             {spentToday.map((spent: Spent) => (
                                 <SpentItem key={spent.id} spent={spent} />
                             ))}
