@@ -4,7 +4,7 @@ import Grafic from "./_components/grafic";
 import { authOptions } from "../_lib/auth";
 import LastWeekSpent from "./_components/lastWeekSpent";
 import LastMonthSpent from "./_components/lastMonthSpent";
-import { fetchSpentData } from "../_helpers/fetchSpentData";
+import { fetchSpentData } from "../_utils/fetchSpentData";
 
 const Analytics = async () => {
     const session = await getServerSession(authOptions);
