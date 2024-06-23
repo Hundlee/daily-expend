@@ -46,7 +46,7 @@ export function SpentDelete({ spentId }: SpentDeleteProps) {
         <AlertDialog>
             <AlertDialogTrigger asChild>
                 <Button variant="ghost">
-                    <Trash2 className="text-white w-5 h-5 lg:w-6 lg:h-6" />
+                    <Trash2 className="text-foreground w-5 h-5 lg:w-6 lg:h-6" />
                 </Button>
             </AlertDialogTrigger>
             <AlertDialogContent>

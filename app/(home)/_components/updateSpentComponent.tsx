@@ -87,7 +87,7 @@ const UpdateSpentComponent = ({ spent }: UpdateSpentComponentProps) => {
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
                 <DialogTrigger asChild>
                     <Button className="p-2 rounded-full" variant="link">
-                        <RotateCcw className="text-white w-5 h-5 lg:w-6 lg:h-6" />
+                        <RotateCcw className="text-foreground w-5 h-5 lg:w-6 lg:h-6" />
                     </Button>
                 </DialogTrigger>
                 <DialogContent>
