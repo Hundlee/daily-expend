@@ -28,7 +28,7 @@ export function ThemeToggle() {
                     variant="link"
                     className="text-black p-0"
                 >
-                    <MoonIcon />
+                    <MoonIcon className="lg:w-8 lg:h-8" />
                 </Button>
             ) : (
                 <Button
@@ -37,7 +37,7 @@ export function ThemeToggle() {
                     variant="link"
                     className="text-white p-0"
                 >
-                    <SunIcon />
+                    <SunIcon className="lg:w-8 lg:h-8" />
                 </Button>
             )}
         </form>

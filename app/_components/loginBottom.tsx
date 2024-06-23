@@ -19,11 +19,11 @@ const LoginButton = () => {
         <div>
             {session ? (
                 <Button variant="ghost" className="p-0" onClick={handleLogout}>
-                    <LogOutIcon />
+                    <LogOutIcon className="lg:w-8 lg:h-8" />
                 </Button>
             ) : (
                 <Button variant="ghost" className="p-0" onClick={handleLogin}>
-                    <LogInIcon />
+                    <LogInIcon className="lg:w-8 lg:h-8" />
                 </Button>
             )}
         </div>
