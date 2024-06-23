@@ -17,8 +17,8 @@ const SpentItem = ({ spent }: SpentItemProps) => {
 
     return (
         <Card className="w-full last:mb-24 lg:h-[10rem] lg:flex lg:items-center lg:justify-center ">
-            <CardContent className="py-0 flex px-0 items-center justify-between lg:w-full">
-                <div className="flex flex-col gap-2 py-5 pl-3 w-32 lg:gap-5">
+            <CardContent className="py-0 flex items-center justify-between lg:w-full">
+                <div className="flex flex-col gap-2 py-5 lg:gap-5 w-full">
                     <h2 className="font-bold">{spent.name}</h2>
                     {spent.date >= currentDate ? (
                         <p className="text-sm">
@@ -32,11 +32,11 @@ const SpentItem = ({ spent }: SpentItemProps) => {
                         </p>
                     )}
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col w-full">
                     <UpdateSpentComponent spent={spent} />
                     <SpentDelete spentId={spent} />
                 </div>
-                <div className="flex flex-col items-center justify-center pr-3 w-32">
+                <div className="flex flex-col justify-center w-full place-content-end items-end">
                     <p className="text-destructive font-semibold">
                         - R$ {parseFloat(spent.price.valueOf()).toFixed(2)}
                     </p>
